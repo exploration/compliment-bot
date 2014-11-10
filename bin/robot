@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+show_help() {
+  cat <<HELP
+EXPLO ROBOT
+
+Usage - \`robot <options>"\`
+
+Options:
+  -h - Show this help screen
+  -a - Put the robot in "activity mode"
+  -c - Put the robot in "compliment mode"
+  -l - location of the "activity robot" repository
+       (default $HOME/git/activity-robot)
+HELP
+}
+
+# default values
+REPO="${HOME}/git/activity-robot/lib"
+FIGLETFONT="cybermedium"
+MODE="compliment" # by default
+OUTPUTWIDTH=32
+
+while getopts "hacl:" OPTNAME
+do
+  case "$OPTNAME" in
+    "h")
+      show_help
+      exit
+      ;;
+    "a")
+      # activity mode
+      MODE="activity"
+      ;;
+    "c")
+      # compliment mode
+      MODE="compliment"
+      ;;
+    "l")
+      REPO=$OPTARG
+      ;;
+    "?")
+      echo "Unknown option $OPTARG"
+      ;;
+    ":")
+      echo "No argument value for option $OPTARG"
+      ;;
+    *)
+    # Should not occur
+      echo "Unknown error while processing options"
+      ;;
+  esac
+done
+
+if [ $MODE = "activity" ]; then
+  OUTPUT="$(${REPO}/lib/robot/generate_activity.rb -l ${REPO})"
+fi
+if [ $MODE = "compliment" ]; then
+  OUTPUT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO})"
+fi
+
+echo "$OUTPUT"
+echo "$OUTPUT" |
+figlet -p -d "${REPO}/lib/fonts" -f "${FIGLETFONT}" -w "${OUTPUTWIDTH}" |
+sudo "${REPO}/lib/robot/print_text.py"

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+OUTPUT=$(ruby lib/robot/robot.rb)
+
+echo "${OUTPUT}"
+
+# generate image by rendering web page
+phantomjs lib/robot/robot.js robot.png "${OUTPUT}"
+echo "robot.png created"
+
+# print the image
+#sudo lib/robot/print_robot_image.py
