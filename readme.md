@@ -15,7 +15,7 @@ It gives you compliments.
 - install [raspberry pi distro](http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/occidentalis-v0-dot-2)
 - connect to network (or computer sharing internet over ethernet)
 - `ssh pi@raspberrypi.local` - password is 'raspberry'
-- (on the Pi now) `sudo raspi-config
+- (on the Pi now) `sudo raspi-config`
     - change password
     - expand filesystem if using a >4GB card
     - set locale properly (en-us-utf8 for us on the east coast USA)
@@ -25,7 +25,7 @@ It gives you compliments.
 - `ssh pi@raspberrypi.local` again
 - `sudo apt-get update`
 - `sudo apt-get install python-serial python-imaging python-unidecode ruby1.9.3 figlet git`
-- edit /boot/cmdline.txt
+- edit /boot/cmdline.txt (to enable serial connection to the thermal printer)
     - change `dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait` to...
     - `dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait`
 - `mkdir ~/git && cd ~/git && git clone https://github.com/exploration/compliment-bot.git`
