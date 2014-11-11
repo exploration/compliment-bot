@@ -5,6 +5,11 @@ It gives you compliments, on little pieces of paper.
 Author: Donald L. Merand for [Explo](http://www.explo.org/)
 
 
+# License
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+
 ## Operation
 
 `./compliment.py` (from the command line) runs the program. The program monitors a button plugged into a GPIO pin on the RPi. When the button is pressed, it lights up a LED (inside the button), activates an Arduino which does fancy things like light up LEDs, and maybe run some motors or whatever, and also prints out a compliment to the thermal printer.
