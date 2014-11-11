@@ -39,7 +39,7 @@ while True:
     # tell the arduino to start lighting things up real nice
     GPIO.output(arduino_pin, True)
     # um... this is hard-coded. jeez.
-    cmd = "/home/pi/git/activity-robot/bin/robot -l /home/pi/git/activity-robot/db"
+    cmd = "/home/pi/git/compliment-robot/bin/robot -l /home/pi/git/compliment-robot/db"
     os.system(cmd)
     GPIO.output(led_pin, False)
     GPIO.output(arduino_pin, False)
