@@ -50,7 +50,7 @@ This part is easy, all you have to do is use the [Arduino IDE](http://arduino.cc
 
 Here is the [Bill of Materials](https://docs.google.com/spreadsheets/d/1Q8_7Lmra2s3A8SbT2oduA7fXXXVdrU4QU93FSB4Z0Tc/edit?usp=sharing) necessary to wire the project together. Expect to spend in the neighborhood of $150-$200, depending on what you have lying around.
 
-![wiring diagram](compliment-bot-wiring.png)
+![wiring diagram](help/compliment-bot-wiring.png)
 
 - [GPIO reference for the Raspberry Pi Model B+](https://learn.adafruit.com/introducing-the-raspberry-pi-model-b-plus-plus-differences-vs-model-b/gpio-port)
 
