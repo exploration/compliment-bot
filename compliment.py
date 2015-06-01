@@ -33,13 +33,21 @@ GPIO.setup(arduino_pin, GPIO.OUT)
 GPIO.output(led_pin, False)
 GPIO.output(arduino_pin, False)
 
-while True:
-  if ( GPIO.input(button_pin) == False ):
-    GPIO.output(led_pin, True)
-    # tell the arduino to start lighting things up real nice
-    GPIO.output(arduino_pin, True)
-    # um... this is hard-coded. jeez.
-    cmd = "/home/pi/git/compliment-bot/bin/robot -l /home/pi/git/compliment-bot/db"
-    os.system(cmd)
-    GPIO.output(led_pin, False)
-    GPIO.output(arduino_pin, False)
+try:
+  while True:
+    if ( GPIO.input(button_pin) == False ):
+      GPIO.output(led_pin, True)
+      # tell the arduino to start lighting things up real nice
+      GPIO.output(arduino_pin, True)
+      # um... this is hard-coded. jeez.
+      cmd = "/home/pi/git/compliment-bot/bin/robot -l /home/pi/git/compliment-bot/db"
+      os.system(cmd)
+      GPIO.output(led_pin, False)
+      GPIO.output(arduino_pin, False)
+
+#Wait for KeyboardInterrupt or SystemExit (called by kill or others)
+except (KeyboardInterrupt, SystemExit):
+  print("Exit...")
+ 
+finally:
+  cleanup()
