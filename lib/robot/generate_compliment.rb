@@ -28,8 +28,8 @@ def get_file_as_string(filename)
   return data
 end
 
-adverbs = get_file_as_string "#{options[:db_location]}/adverbs.txt"
-adjectives = get_file_as_string "#{options[:db_location]}/adjectives.txt"
+adverbs = get_file_as_string "#{options[:db_location]}/db/adverbs.txt"
+adjectives = get_file_as_string "#{options[:db_location]}/db/adjectives.txt"
 
 output = []
 

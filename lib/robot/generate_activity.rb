@@ -28,7 +28,7 @@ def get_file_as_string(filename)
   return data
 end
 
-data = get_file_as_string "#{options[:db_location]}/activities.txt"
+data = get_file_as_string "#{options[:db_location]}/db/activities.txt"
 output = []
 3.times do
   random = rand(data.length)

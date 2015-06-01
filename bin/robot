@@ -53,10 +53,10 @@ do
 done
 
 if [ $MODE = "activity" ]; then
-  OUTPUT="$(${REPO}/lib/robot/generate_activity.rb -l ${REPO}/db)"
+  OUTPUT="$(${REPO}/lib/robot/generate_activity.rb -l ${REPO})"
 fi
 if [ $MODE = "compliment" ]; then
-  OUTPUT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO}/db)"
+  OUTPUT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO})"
 fi
 
 echo "$OUTPUT"
