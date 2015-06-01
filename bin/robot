@@ -16,7 +16,7 @@ HELP
 }
 
 # default values
-REPO="${HOME}/git/compliment-bot/lib"
+REPO="${HOME}/git/compliment-bot"
 FIGLETFONT="cybermedium"
 MODE="compliment" # by default
 OUTPUTWIDTH=32
@@ -53,10 +53,10 @@ do
 done
 
 if [ $MODE = "activity" ]; then
-  OUTPUT="$(${REPO}/lib/robot/generate_activity.rb -l ${REPO})"
+  OUTPUT="$(${REPO}/lib/robot/generate_activity.rb -l ${REPO}/db)"
 fi
 if [ $MODE = "compliment" ]; then
-  OUTPUT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO})"
+  OUTPUT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO}/db)"
 fi
 
 echo "$OUTPUT"

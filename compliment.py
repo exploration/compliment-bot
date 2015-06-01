@@ -33,6 +33,9 @@ GPIO.setup(arduino_pin, GPIO.OUT)
 GPIO.output(led_pin, False)
 GPIO.output(arduino_pin, False)
 
+def cleanup():
+  GPIO.cleanup()
+
 try:
   while True:
     if ( GPIO.input(button_pin) == False ):
