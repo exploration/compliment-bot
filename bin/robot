@@ -16,7 +16,7 @@ HELP
 }
 
 # default values
-REPO="${HOME}/git/activity-robot/lib"
+REPO="${HOME}/git/compliment-bot/lib"
 FIGLETFONT="cybermedium"
 MODE="compliment" # by default
 OUTPUTWIDTH=32
