@@ -60,7 +60,7 @@ Here is the [Bill of Materials](https://docs.google.com/spreadsheets/d/1Q8_7Lmra
 - `ssh pi@raspberrypi.local`
 - `cd git/compliment-robot`
 - `./compliment.py`
-  - OR you could edit /etc/rc.local and add the line `cd ~/git/compliment-robot && ./compliment.py`, which would make the program run on system start.
+  - OR you could edit `/etc/rc.local` and add the line `cd /home/pi/git/compliment-robot && sudo ./compliment.py`, which would make the program run on system start.
 
 
 
