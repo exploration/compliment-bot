@@ -5,6 +5,8 @@ It gives you compliments, on little pieces of paper.
 Author: Donald L. Merand for [Explo](http://www.explo.org/)
 
 ![example build](help/example-build/compliment-bot-v1.png)
+![example build - internals](help/example-build/compliment-bot-v1-internals-1.png)
+![example build - closeup](help/example-build/compliment-bot-v1-internals-2.png)
 
 
 ## License
