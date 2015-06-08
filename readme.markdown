@@ -68,3 +68,5 @@ Here is the [Adafruit Trinket](https://www.adafruit.com/products/1500) version o
 # PS
 
 You can visit compliment bot [online](http://robot.lab.explo.org) if you want to :)
+
+![example build](help/example-build/compliment-bot-v1.png)
