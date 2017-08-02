@@ -78,6 +78,6 @@ if [ $MODE = "maze" ]; then
   # assuming theseus is in the PATH
   # more info: https://github.com/jamis/theseus
   OUTPUT="$(theseus -w 10 -H 20)"
-  printf "$COMPLIMENT\n$OUTPUT\n" |
+  printf "$OUTPUT\n$COMPLIMENT" |
   sudo "${REPO}/lib/robot/print_text.py"
 fi
