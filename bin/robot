@@ -10,6 +10,7 @@ Options:
   -h - Show this help screen
   -a - Put the robot in "activity mode"
   -c - Put the robot in "compliment mode"
+  -m - Put the robot in "maze mode"
   -l - location of the "activity robot" repository
        (default $HOME/git/activity-robot)
 HELP
@@ -21,7 +22,7 @@ FIGLETFONT="cybermedium"
 MODE="compliment" # by default
 OUTPUTWIDTH=32
 
-while getopts "hacl:" OPTNAME
+while getopts "hacml:" OPTNAME
 do
   case "$OPTNAME" in
     "h")
@@ -35,6 +36,10 @@ do
     "c")
       # compliment mode
       MODE="compliment"
+      ;;
+    "m")
+      # maze mode
+      MODE="maze"
       ;;
     "l")
       REPO=$OPTARG
@@ -52,14 +57,25 @@ do
   esac
 done
 
+
 if [ $MODE = "activity" ]; then
   OUTPUT="$(${REPO}/lib/robot/generate_activity.rb -l ${REPO})"
+  echo "$OUTPUT" |
+  figlet -p -d "${REPO}/lib/fonts" -f "${FIGLETFONT}" -w "${OUTPUTWIDTH}" |
+  sudo "${REPO}/lib/robot/print_text.py"
 fi
 if [ $MODE = "compliment" ]; then
   OUTPUT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO})"
+  echo "$OUTPUT" |
+  figlet -p -d "${REPO}/lib/fonts" -f "${FIGLETFONT}" -w "${OUTPUTWIDTH}" |
+  sudo "${REPO}/lib/robot/print_text.py"
+fi
+if [ $MODE = "maze" ]; then
+  # assuming theseus is in the PATH
+  # more info: https://github.com/jamis/theseus
+  OUTPUT="$(theseus -w 10 -H 20)"
+  echo "$OUTPUT" |
+  sudo "${REPO}/lib/robot/print_text.py"
 fi
 
 echo "$OUTPUT"
-echo "$OUTPUT" |
-figlet -p -d "${REPO}/lib/fonts" -f "${FIGLETFONT}" -w "${OUTPUTWIDTH}" |
-sudo "${REPO}/lib/robot/print_text.py"
