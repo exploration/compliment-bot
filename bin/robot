@@ -19,7 +19,7 @@ HELP
 # default values
 REPO="${HOME}/git/compliment-bot"
 FIGLETFONT="cybermedium"
-MODE="compliment" # by default
+MODE="maze" # by default
 OUTPUTWIDTH=32
 
 while getopts "hacml:" OPTNAME
@@ -64,18 +64,20 @@ if [ $MODE = "activity" ]; then
   figlet -p -d "${REPO}/lib/fonts" -f "${FIGLETFONT}" -w "${OUTPUTWIDTH}" |
   sudo "${REPO}/lib/robot/print_text.py"
 fi
+
 if [ $MODE = "compliment" ]; then
   OUTPUT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO})"
   echo "$OUTPUT" |
   figlet -p -d "${REPO}/lib/fonts" -f "${FIGLETFONT}" -w "${OUTPUTWIDTH}" |
   sudo "${REPO}/lib/robot/print_text.py"
 fi
+
 if [ $MODE = "maze" ]; then
+  # print a compliment AND a maze :)
+  COMPLIMENT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO})"
   # assuming theseus is in the PATH
   # more info: https://github.com/jamis/theseus
   OUTPUT="$(theseus -w 10 -H 20)"
-  echo "$OUTPUT" |
+  printf "$COMPLIMENT\n$OUTPUT\n" |
   sudo "${REPO}/lib/robot/print_text.py"
 fi
-
-echo "$OUTPUT"
