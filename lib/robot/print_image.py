@@ -4,10 +4,10 @@ import Image, os, sys
 from Adafruit_Thermal import *
 
 printer = Adafruit_Thermal("/dev/ttyAMA0", 19200, timeout=5)
-printer.begin(95)    # Increase the heat
+printer.begin(80)    # Increase the heat
 
 image_path = sys.argv[1]
-os.system('convert ' + image_path + ' -resize 382x382 tmp.png')
+os.system('convert ' + image_path + ' -resize 382x764 tmp.png')
 printer.printImage(Image.open('tmp.png'), True)
 printer.feed(2)
 os.system('rm tmp.png')
