@@ -80,6 +80,9 @@ if [ $MODE = "maze" ]; then
   printf "$COMPLIMENT!\n..." |
   sudo "${REPO}/lib/robot/print_text.py"
 
-  /usr/local/bin/theseus -w 15 -H 30 -f png -o /tmp/maze
+  # anywhere from 10 to 20 for maze size
+  MAZESIZE=$((10 + (RANDOM % 10)))
+
+  /usr/local/bin/theseus -w "${MAZESIZE}" -H $((2 * MAZESIZE)) -f png -o /tmp/maze
   sudo "${REPO}/lib/robot/print_image.py" "/tmp/maze.png"
 fi
