@@ -75,11 +75,11 @@ fi
 if [ $MODE = "maze" ]; then
   # print a compliment AND a maze :)
   COMPLIMENT="$(${REPO}/lib/robot/generate_compliment.rb -l ${REPO})"
-  # assuming theseus is in the PATH
-  # more info: https://github.com/jamis/theseus
   printf "$COMPLIMENT!\n..." |
   sudo "${REPO}/lib/robot/print_text.py"
 
+  # assuming theseus is in the PATH
+  # more info: https://github.com/jamis/theseus
   # anywhere from 10 to 20 for maze size
   MAZESIZE=$((10 + (RANDOM % 10)))
 
