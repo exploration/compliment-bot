@@ -2,6 +2,8 @@
 
 It gives you compliments, on little pieces of paper.
 
+It also has a mode that we call "AMazeBot" which prints out random mazes to solve (but still gives you compliments!)
+
 Author: Donald L. Merand for [Explo](http://www.explo.org/)
 
 ![example build](help/example-build/compliment-bot-v1.png)
@@ -42,7 +44,11 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
     - change `dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait` to...
     - `dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait`
 - `mkdir ~/git && cd ~/git && git clone https://github.com/exploration/compliment-bot.git`
+- If you want to put the 'bot in AMazeBot mode, you'll also need to:
+  - `sudo gem install theseus`
+  - Edit `~/git/compliment-bot/bin/robot` and change the line that says `MODE="compliment"` to say `MODE="maze"`
 - `sudo reboot`
+
 
 
 ### On the Arduino
