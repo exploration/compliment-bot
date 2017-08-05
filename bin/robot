@@ -19,7 +19,7 @@ HELP
 # default values
 REPO="${HOME}/git/compliment-bot"
 FIGLETFONT="cybermedium"
-MODE="maze" # by default
+MODE="compliment" # by default
 OUTPUTWIDTH=32
 
 while getopts "hacml:" OPTNAME
